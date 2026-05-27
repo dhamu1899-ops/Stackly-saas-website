@@ -282,3 +282,152 @@ if (document.body.classList.contains('dashboard-page')) {
     });
   });
 })();
+
+// =========================================================
+// QA BUG FIX PASS - 2026-05-27
+// Keeps design unchanged; improves responsive behavior, accessibility and form feedback.
+// =========================================================
+(function(){
+  const menuBtn = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  if(menuBtn && navLinks){
+    const setMenuState = (open) => {
+      navLinks.classList.toggle('open', open);
+      document.body.classList.toggle('mobile-menu-open', open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      const icon = menuBtn.querySelector('i');
+      if(icon) icon.className = open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    };
+
+    menuBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setMenuState(!navLinks.classList.contains('open'));
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => setMenuState(false));
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') setMenuState(false);
+    });
+
+    window.addEventListener('resize', () => {
+      if(window.matchMedia('(min-width: 992px)').matches) setMenuState(false);
+    });
+  }
+})();
+
+(function(){
+  // Required-form validation + visible loading/disabled state.
+  document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', (e) => {
+      if(!form.checkValidity()){
+        e.preventDefault();
+        form.classList.add('was-validated');
+        form.reportValidity();
+        return;
+      }
+      const submitBtn = form.querySelector('button[type="submit"], .btn[type="submit"]');
+      if(submitBtn){
+        submitBtn.classList.add('is-loading');
+        submitBtn.setAttribute('aria-disabled','true');
+      }
+    }, true);
+  });
+})();
+
+(function(){
+  // Social/internal 404 links are intentionally routed to the 404 page.
+  // Add descriptive title for accessibility.
+  document.querySelectorAll('.footer-social a, .mono-social a').forEach(link => {
+    if(!link.getAttribute('title')){
+      link.setAttribute('title', link.getAttribute('aria-label') || 'Social link');
+    }
+  });
+})();
+
+(function(){
+  // Dashboard hamburger final reliable state and accessibility.
+  if(!document.body.classList.contains('dashboard-page')) return;
+  const toggle = document.querySelector('.dash-toggle');
+  const sidebar = document.querySelector('.dash-sidebar');
+  if(!toggle || !sidebar) return;
+
+  const close = () => {
+    document.body.classList.remove('sidebar-open');
+    toggle.setAttribute('aria-expanded','false');
+    const icon = toggle.querySelector('i');
+    if(icon) icon.className = 'fa-solid fa-bars';
+  };
+  const open = () => {
+    document.body.classList.add('sidebar-open');
+    toggle.setAttribute('aria-expanded','true');
+    const icon = toggle.querySelector('i');
+    if(icon) icon.className = 'fa-solid fa-xmark';
+  };
+
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    document.body.classList.contains('sidebar-open') ? close() : open();
+  });
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') close(); });
+  document.querySelectorAll('.dash-menu a[data-panel]').forEach(link => {
+    link.addEventListener('click', () => {
+      if(window.matchMedia('(max-width: 991px)').matches) close();
+    });
+  });
+})();
+
+// =========================================================
+// FINAL QA MENU GUARD: capture-phase handlers prevent old duplicate toggles.
+// =========================================================
+(function(){
+  const btn = document.querySelector('.hamburger');
+  const menu = document.querySelector('.nav-links');
+  if(!btn || !menu) return;
+  btn.addEventListener('click', function(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    const open = !menu.classList.contains('open');
+    menu.classList.toggle('open', open);
+    document.body.classList.toggle('mobile-menu-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    const icon = btn.querySelector('i');
+    if(icon) icon.className = open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+  }, true);
+})();
+
+(function(){
+  if(!document.body.classList.contains('dashboard-page')) return;
+  const btn = document.querySelector('.dash-toggle');
+  if(!btn) return;
+  btn.addEventListener('click', function(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    const open = !document.body.classList.contains('sidebar-open');
+    document.body.classList.toggle('sidebar-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    const icon = btn.querySelector('i');
+    if(icon) icon.className = open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+  }, true);
+})();
+
+
+// FINAL FORGOT PASSWORD FIX: show existing premium Stackly loader, then navigate to 404.
+(function(){
+  document.querySelectorAll('.forgot-link').forEach(link => {
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      if(window.stacklyShowLoader){
+        window.stacklyShowLoader();
+        setTimeout(()=>{ window.location.href = '404.html'; }, 2000);
+      }else{
+        window.location.href = '404.html';
+      }
+    }, true);
+  });
+})();
