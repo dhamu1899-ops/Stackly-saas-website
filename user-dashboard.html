@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard | Stackly</title>
+  <link rel="icon" href="assets/logo/stackly-logo.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-page user-dashboard">
+  <aside class="dash-sidebar user-side">
+    <a class="dash-logo" href="index.html">
+      <img src="assets/logo/stackly-logo.webp" alt="Stackly">
+      <span>Stackly</span>
+    </a>
+
+    <div class="dash-user">
+      <small>User Workspace</small>
+      <strong id="dashName">Dhamu</strong>
+      <span id="dashEmail">dhamu@gmail.com</span>
+    </div>
+
+    <nav class="dash-menu">
+      <a class="active" data-panel="workspace"><i class="fa-solid fa-house-laptop"></i> Workspace</a>
+      <a data-panel="tasks"><i class="fa-solid fa-list-check"></i> My Tasks</a>
+      <a data-panel="projects"><i class="fa-solid fa-diagram-project"></i> Projects</a>
+      <a data-panel="crm"><i class="fa-solid fa-address-book"></i> CRM</a>
+      <a data-panel="support"><i class="fa-solid fa-headset"></i> Support</a>
+      <a data-panel="billing"><i class="fa-solid fa-wallet"></i> Billing</a>
+      <a data-panel="profile"><i class="fa-solid fa-user-gear"></i> Profile</a>
+    </nav>
+  </aside>
+
+  <main class="dash-main">
+    <header class="dash-top dash-top-premium user-top">
+      <div class="dash-title-wrap">
+        <button class="dash-toggle"><i class="fa-solid fa-bars"></i></button>
+        <div>
+          <span class="dash-kicker">My Stackly Workspace</span>
+          <h1>User Dashboard</h1>
+          <p>Track your assigned work, CRM updates, support tickets, project milestones and billing status.</p>
+        </div>
+      </div>
+      <div class="dash-top-actions">
+        <div class="dash-mail-pill"><i class="fa-solid fa-user"></i><span id="topEmail">dhamu@gmail.com</span></div>
+        <button class="btn btn-primary logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+      </div>
+    </header>
+
+    <section class="dash-panel active" id="workspace">
+      <div class="dash-cards premium-dash-cards">
+        <div class="dash-stat icon-stat"><i class="fa-solid fa-list-check"></i><span>My Tasks</span><strong>18</strong><small>6 due today</small></div>
+        <div class="dash-stat icon-stat"><i class="fa-solid fa-folder-open"></i><span>Projects</span><strong>5</strong><small>2 in progress</small></div>
+        <div class="dash-stat icon-stat"><i class="fa-solid fa-ticket"></i><span>Tickets</span><strong>9</strong><small>3 awaiting reply</small></div>
+        <div class="dash-stat icon-stat"><i class="fa-solid fa-bell"></i><span>Updates</span><strong>42</strong><small>This week</small></div>
+      </div>
+      <div class="dashboard-layout-2">
+        <div class="dash-widget-box big-widget"><div class="widget-heading"><h3>Task progress</h3><span>Live</span></div><div class="progress-list"><span>CRM setup <b>80%</b></span><div><i style="width:80%"></i></div><span>Billing review <b>55%</b></span><div><i style="width:55%"></i></div><span>Support cleanup <b>72%</b></span><div><i style="width:72%"></i></div><span>Dashboard testing <b>64%</b></span><div><i style="width:64%"></i></div></div></div>
+        <div class="dash-widget-box"><div class="widget-heading"><h3>Today</h3><span>4 items</span></div><div class="activity-list"><p><i class="fa-solid fa-circle-check"></i> Update CRM customer notes.</p><p><i class="fa-solid fa-clock"></i> Review open support tickets.</p><p><i class="fa-solid fa-paper-plane"></i> Share project handoff status.</p><p><i class="fa-solid fa-file-invoice"></i> Verify billing invoice details.</p></div></div>
+      </div>
+    </section>
+
+    <section class="dash-panel" id="tasks">
+      <div class="panel-head"><h2>My Tasks</h2><p>Assigned tasks, reminders and personal follow-ups.</p></div>
+      <div class="task-list"><div class="task-card done"><i class="fa-solid fa-check"></i><div><h3>CRM lead notes update</h3><p>Completed today at 10:30 AM.</p></div><span>Done</span></div><div class="task-card progress"><i class="fa-solid fa-spinner"></i><div><h3>Support ticket cleanup</h3><p>Review open tickets and mark resolved items.</p></div><span>In Progress</span></div><div class="task-card pending"><i class="fa-solid fa-hourglass-half"></i><div><h3>Billing renewal check</h3><p>Check upcoming renewals and invoice status.</p></div><span>Pending</span></div></div>
+    </section>
+
+    <section class="dash-panel" id="projects">
+      <div class="panel-head"><h2>Projects</h2><p>Kanban boards, milestones and delivery status.</p></div>
+      <div class="kanban-grid user-kanban"><div class="kanban-col"><h3>Planning</h3><p>SaaS onboarding workflow</p><p>Dashboard UI fixes</p></div><div class="kanban-col"><h3>In Progress</h3><p>CRM module testing</p><p>Billing screen validation</p></div><div class="kanban-col"><h3>Review</h3><p>Support desk layout</p></div><div class="kanban-col"><h3>Done</h3><p>Login signup flow</p><p>Contact page map</p></div></div>
+    </section>
+
+    <section class="dash-panel" id="crm">
+      <div class="panel-head"><h2>CRM</h2><p>Customer updates, follow-ups and meeting notes.</p></div>
+      <div class="table-card premium-table"><table><tr><th>Customer</th><th>Stage</th><th>Next Action</th><th>Status</th></tr><tr><td>BluePeak Tech</td><td>Demo</td><td>Send proposal</td><td><span class="status pending">Follow-up</span></td></tr><tr><td>Nova Retail</td><td>Qualified</td><td>Book call</td><td><span class="status active">Active</span></td></tr><tr><td>CloudBridge</td><td>Onboarding</td><td>Collect setup details</td><td><span class="status active">Active</span></td></tr></table></div>
+    </section>
+
+    <section class="dash-panel" id="support">
+      <div class="panel-head"><h2>Support</h2><p>Ticket updates, SLA and response history.</p></div>
+      <div class="support-grid"><div class="support-ticket high"><h3>Urgent</h3><strong>3</strong><p>Login and payment issues</p></div><div class="support-ticket medium"><h3>Assigned</h3><strong>9</strong><p>Need reply from user</p></div><div class="support-ticket low"><h3>Resolved</h3><strong>28</strong><p>This week</p></div></div>
+    </section>
+
+    <section class="dash-panel" id="billing">
+      <div class="panel-head"><h2>Billing</h2><p>Your invoices, plan usage and renewal reminders.</p></div>
+      <div class="dash-cards small-cards"><div class="dash-stat"><span>Current Plan</span><strong>Growth</strong><small>₹2,499/month</small></div><div class="dash-stat"><span>Next Renewal</span><strong>28 May</strong><small>Auto reminder enabled</small></div><div class="dash-stat"><span>Invoices</span><strong>12</strong><small>11 paid</small></div></div>
+      <div class="table-card premium-table"><table><tr><th>Invoice</th><th>Amount</th><th>Date</th><th>Status</th></tr><tr><td>INV-1024</td><td>₹2,499</td><td>26 May</td><td><span class="status active">Paid</span></td></tr><tr><td>INV-1025</td><td>₹2,499</td><td>28 Jun</td><td><span class="status pending">Upcoming</span></td></tr></table></div>
+    </section>
+
+    <section class="dash-panel" id="profile">
+      <div class="panel-head"><h2>Profile</h2><p>Account details, notification preferences and security.</p></div>
+      <div class="settings-grid"><div><i class="fa-solid fa-user"></i><h3>Personal Info</h3><p>Name, email and role details are stored locally for this static project.</p></div><div><i class="fa-solid fa-bell"></i><h3>Notifications</h3><p>Email reminders for tasks, tickets and renewals.</p></div><div><i class="fa-solid fa-lock"></i><h3>Password</h3><p>Static demo password field for frontend UI practice.</p></div></div>
+    </section>
+  </main>
+  <script src="js/script.js"></script>
+</body>
+</html>

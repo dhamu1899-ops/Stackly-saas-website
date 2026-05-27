@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Stackly</title>
+  <link rel="icon" href="assets/logo/stackly-logo.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-page admin-dashboard">
+  <aside class="dash-sidebar">
+    <a class="dash-logo" href="index.html">
+      <img src="assets/logo/stackly-logo.webp" alt="Stackly">
+      <span>Stackly</span>
+    </a>
+
+    <div class="dash-user">
+      <small>Admin Panel</small>
+      <strong id="dashName">Dhamu</strong>
+      <span id="dashEmail">dhamu@gmail.com</span>
+    </div>
+
+    <nav class="dash-menu">
+      <a class="active" data-panel="overview"><i class="fa-solid fa-chart-line"></i> Overview</a>
+      <a data-panel="users"><i class="fa-solid fa-users-gear"></i> Manage Users</a>
+      <a data-panel="crm"><i class="fa-solid fa-handshake"></i> CRM Pipeline</a>
+      <a data-panel="billing"><i class="fa-solid fa-receipt"></i> Billing</a>
+      <a data-panel="support"><i class="fa-solid fa-headset"></i> Support</a>
+      <a data-panel="analytics"><i class="fa-solid fa-chart-pie"></i> Analytics</a>
+      <a data-panel="settings"><i class="fa-solid fa-shield-halved"></i> Settings</a>
+    </nav>
+  </aside>
+
+  <main class="dash-main">
+    <header class="dash-top dash-top-premium">
+      <div class="dash-title-wrap">
+        <button class="dash-toggle"><i class="fa-solid fa-bars"></i></button>
+        <div>
+          <span class="dash-kicker">Stackly Admin Workspace</span>
+          <h1>Admin Dashboard</h1>
+          <p>Control users, CRM, billing, support, analytics and security from one premium operating panel.</p>
+        </div>
+      </div>
+      <div class="dash-top-actions">
+        <div class="dash-mail-pill"><i class="fa-solid fa-envelope"></i><span id="topEmail">dhamu@gmail.com</span></div>
+        <button class="btn btn-primary logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+      </div>
+    </header>
+
+    <section class="dash-panel active" id="overview">
+      <div class="dash-cards premium-dash-cards">
+        <div class="dash-stat icon-stat"><i class="fa-solid fa-users"></i><span>Total Users</span><strong>1,248</strong><small>+18% this month</small></div>
+        <div class="dash-stat icon-stat"><i class="fa-solid fa-indian-rupee-sign"></i><span>Monthly Revenue</span><strong>₹8.4L</strong><small>MRR growth +24%</small></div>
+        <div class="dash-stat icon-stat"><i class="fa-solid fa-ticket"></i><span>Open Tickets</span><strong>326</strong><small>82% resolved</small></div>
+        <div class="dash-stat icon-stat"><i class="fa-solid fa-shield"></i><span>System Health</span><strong>99.9%</strong><small>Secure uptime</small></div>
+      </div>
+
+      <div class="dashboard-layout-2">
+        <div class="dash-widget-box big-widget">
+          <div class="widget-heading"><h3>Revenue pipeline</h3><span>Live</span></div>
+          <div class="mini-bars enhanced-bars"><i style="height:45%"></i><i style="height:70%"></i><i style="height:55%"></i><i style="height:88%"></i><i style="height:74%"></i><i style="height:92%"></i></div>
+        </div>
+        <div class="dash-widget-box">
+          <div class="widget-heading"><h3>Recent activity</h3><span>Today</span></div>
+          <div class="activity-list">
+            <p><i class="fa-solid fa-circle-check"></i> New user onboarding completed.</p>
+            <p><i class="fa-solid fa-bell"></i> Billing reminder sent to 42 clients.</p>
+            <p><i class="fa-solid fa-arrow-trend-up"></i> CRM pipeline updated by sales team.</p>
+            <p><i class="fa-solid fa-lock"></i> Security session audit completed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dash-panel" id="users">
+      <div class="panel-head"><h2>Manage Users</h2><p>Create, monitor and review all platform users.</p></div>
+      <div class="dash-cards small-cards"><div class="dash-stat"><span>Admins</span><strong>12</strong><small>Full access</small></div><div class="dash-stat"><span>Users</span><strong>1,236</strong><small>Active seats</small></div><div class="dash-stat"><span>Pending</span><strong>38</strong><small>Invitations</small></div></div>
+      <div class="table-card premium-table"><table><tr><th>Name</th><th>Email</th><th>Role</th><th>Plan</th><th>Status</th></tr><tr><td>Dhamu</td><td>dhamu@gmail.com</td><td>Admin</td><td>Enterprise</td><td><span class="status active">Active</span></td></tr><tr><td>Priya Raman</td><td>priya@stackly.com</td><td>Admin</td><td>Growth</td><td><span class="status active">Active</span></td></tr><tr><td>Arun Kumar</td><td>arun@client.com</td><td>User</td><td>Starter</td><td><span class="status pending">Pending</span></td></tr><tr><td>Neha Shah</td><td>neha@company.com</td><td>User</td><td>Growth</td><td><span class="status active">Active</span></td></tr></table></div>
+    </section>
+
+    <section class="dash-panel" id="crm">
+      <div class="panel-head"><h2>CRM Pipeline</h2><p>Track leads, client meetings, deal stages and sales health.</p></div>
+      <div class="kanban-grid"><div class="kanban-col"><h3>New Leads</h3><p>Fresh demo request</p><p>Website enquiry</p><p>Partner referral</p></div><div class="kanban-col"><h3>Qualified</h3><p>SaaS automation deal</p><p>Billing platform client</p></div><div class="kanban-col"><h3>Proposal</h3><p>Enterprise workflow setup</p><p>CRM migration plan</p></div><div class="kanban-col"><h3>Closed</h3><p>Analytics onboarding</p><p>Support desk setup</p></div></div>
+    </section>
+
+    <section class="dash-panel" id="billing">
+      <div class="panel-head"><h2>Billing</h2><p>Subscriptions, invoices, renewals and revenue reports.</p></div>
+      <div class="dash-cards premium-dash-cards"><div class="dash-stat"><span>Paid Invoices</span><strong>842</strong><small>₹8.4L collected</small></div><div class="dash-stat"><span>Renewals</span><strong>126</strong><small>This month</small></div><div class="dash-stat"><span>Failed Payments</span><strong>14</strong><small>Needs follow-up</small></div><div class="dash-stat"><span>AR Pending</span><strong>₹1.2L</strong><small>Due in 7 days</small></div></div>
+      <div class="table-card premium-table"><table><tr><th>Client</th><th>Plan</th><th>Amount</th><th>Due</th><th>Status</th></tr><tr><td>BluePeak Tech</td><td>Growth</td><td>₹2,499</td><td>28 May</td><td><span class="status active">Paid</span></td></tr><tr><td>Nova Retail</td><td>Enterprise</td><td>Custom</td><td>30 May</td><td><span class="status pending">Pending</span></td></tr><tr><td>CloudBridge</td><td>Starter</td><td>₹999</td><td>02 Jun</td><td><span class="status active">Paid</span></td></tr></table></div>
+    </section>
+
+    <section class="dash-panel" id="support">
+      <div class="panel-head"><h2>Support Desk</h2><p>Monitor tickets, SLA, response quality and customer satisfaction.</p></div>
+      <div class="support-grid"><div class="support-ticket high"><h3>High Priority</h3><strong>12</strong><p>Payment and login issues</p></div><div class="support-ticket medium"><h3>Medium Priority</h3><strong>48</strong><p>Feature clarification and workflow setup</p></div><div class="support-ticket low"><h3>Low Priority</h3><strong>93</strong><p>General product questions</p></div></div>
+      <div class="dash-widget-box"><h3>SLA Summary</h3><div class="progress-list"><span>First response <b>92%</b></span><div><i style="width:92%"></i></div><span>Resolution quality <b>86%</b></span><div><i style="width:86%"></i></div><span>Customer satisfaction <b>94%</b></span><div><i style="width:94%"></i></div></div></div>
+    </section>
+
+    <section class="dash-panel" id="analytics">
+      <div class="panel-head"><h2>Analytics</h2><p>Leadership visibility across sales, support, billing and delivery.</p></div>
+      <div class="analytics-grid"><div class="metric-card"><span>Conversion</span><strong>38%</strong><div class="ring"></div></div><div class="metric-card"><span>Churn</span><strong>4.2%</strong><div class="ring small-ring"></div></div><div class="metric-card"><span>NPS</span><strong>72</strong><div class="ring"></div></div></div>
+      <div class="dash-widget-box"><h3>Department insights</h3><p>Sales pipeline is improving with 24% faster deal movement.</p><p>Support SLA improved after automation routing.</p><p>Billing renewals need follow-up in enterprise accounts.</p></div>
+    </section>
+
+    <section class="dash-panel" id="settings">
+      <div class="panel-head"><h2>Admin Settings</h2><p>Role permissions, access security and workspace configuration.</p></div>
+      <div class="settings-grid"><div><i class="fa-solid fa-user-shield"></i><h3>Role Access</h3><p>Admin, manager and user-level module permissions.</p></div><div><i class="fa-solid fa-key"></i><h3>Security</h3><p>Session alerts, password rules and audit logs.</p></div><div><i class="fa-solid fa-sliders"></i><h3>Workspace</h3><p>Branding, billing preferences and module settings.</p></div></div>
+    </section>
+  </main>
+  <script src="js/script.js"></script>
+</body>
+</html>

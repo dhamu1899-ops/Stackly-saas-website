@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Login | Stackly SaaS</title><link rel="icon" href="assets/logo/stackly-logo.webp"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"><link rel="stylesheet" href="css/style.css"></head><body class="auth-page"><header class="header"><div class="container nav"><a class="logo" href="index.html"><img src="assets/logo/stackly-logo.webp" alt="Stackly"><span class="logo-text">Stackly</span></a><ul class="nav-links"><li><a href="index.html" class="">Home</a></li><li><a href="about.html" class="">About</a></li><li><a href="features.html" class="">Features</a></li><li><a href="pricing.html" class="">Pricing</a></li><li><a href="blog.html" class="">Blog</a></li><li><a href="contact.html" class="">Contact</a></li></ul><div class="nav-actions"><a class="btn btn-light" href="login.html">Login</a><a class="btn btn-primary" href="signup.html">Get Started</a><button class="hamburger"><i class="fa-solid fa-bars"></i></button></div></div></header>
+<main class="auth-wrap premium-auth-wrap">
+  <section class="auth-left premium-auth-left">
+    <div class="auth-brand-panel">
+      <a href="index.html" class="auth-panel-logo"><img src="assets/logo/stackly-logo.webp" alt="Stackly"><span>Stackly</span></a>
+      <span class="eyebrow white-eyebrow">Role based access</span>
+      <h1>Login to your Stackly workspace</h1>
+      <p>Choose Admin or User, enter your email and password, then open your matching SaaS dashboard.</p>
+      <div class="auth-feature-row"><span><i class="fa-solid fa-shield-halved"></i> Secure role login</span><span><i class="fa-solid fa-chart-line"></i> Dashboard access</span></div>
+    </div>
+  </section>
+  <section class="auth-right premium-auth-right">
+    <div class="auth-box premium-auth-box">
+      <span class="eyebrow">Stackly SaaS</span>
+      <h1>Welcome back</h1>
+      <p class="auth-subtitle">Admin and User dashboard access.</p>
+      <form class="form auth-form" id="loginForm">
+        <label>Login Role</label>
+        <select id="loginRole" required><option value="admin">Admin</option><option value="user">User</option></select>
+        <label>Email address</label>
+        <input id="loginEmail" type="email" placeholder="Enter your email" required>
+        <label>Password</label>
+        <div class="password-field"><input id="loginPassword" type="password" placeholder="Enter password" required><button type="button" class="toggle-password"><i class="fa-regular fa-eye"></i></button></div>
+        <div class="auth-meta"><label class="remember"><input type="checkbox"> Remember me</label><a href="#">Forgot password?</a></div>
+        <button class="btn btn-primary" type="submit">Login <i class="fa-solid fa-arrow-right"></i></button>
+      </form>
+      <div class="mono-social"><a href="404.html"><i class="fa-brands fa-google"></i></a><a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a><a href="404.html"><i class="fa-brands fa-github"></i></a></div>
+      <p class="auth-switch">New to Stackly? <a href="signup.html">Create account</a></p>
+    </div>
+  </section>
+</main><script src="js/script.js"></script></body></html>
